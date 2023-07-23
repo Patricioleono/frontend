@@ -1,0 +1,55 @@
+<app-header></app-header>
+<div class="col-12">
+    <div class="row justify-content-center">
+        <div class="col-3 mt-3">
+            <div class="input-group mb-3">
+                <input 
+                    type="text" 
+                    class="form-control" 
+                    placeholder="Diablo, Lost Ark..." 
+                    aria-label="Diablo, Lost Ark..." 
+                    aria-describedby="button-addon2" 
+                    name="filteredList"
+                    [(ngModel)]="filteredList" />
+            </div>
+        </div>
+        <div class="col-3 mt-3">
+            <select 
+            class="form-select" 
+            aria-label="Default select example"
+            [(ngModel)]="selectedItemGenre" (change)="handleChangeGenre()">
+                <option selected> {{ selectedItemGenre }}</option>
+                <option [value]="genre" *ngFor="let genre of selectFilter">{{ genre }}</option>
+            </select>
+        </div>
+        <div class="col-3 mt-3">
+            <select 
+            class="form-select" 
+            aria-label="Default select example"
+            [(ngModel)]="selectedItemPlatform" (change)="handleChangePlatform()">
+                <option selected>{{ selectedItemPlatform }}</option>
+                <option [value]="platform" *ngFor="let platform of selectPlatform">{{ platform }}</option>
+              </select>
+        </div>
+    </div>
+</div>
+<div class="col-12">
+    <div class="row">
+        <div *ngFor="let games of game | filterText:filteredList" class="card mt-1 ms-1 me-1 col-6" style="width: 18rem;">
+            <img src="{{ games.thumbnail }}" class="card-img-top mt-2" alt="{{ games.title }}">
+            <div class="card-body">
+                <h5 class="card-title">{{ games.title }}</h5>
+                <p class="card-text">{{  games.short_description.slice(0, 35).concat('...') }}</p>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Estreno: {{ games.release_date }}</li>
+                    <li class="list-group-item">Genero: {{ games.genre }}</li>
+                    <li class="list-group-item">Desarrollado por: {{ games.developer }}</li>
+                </ul>
+            </div>
+         <a class="btn btn-primary justify-content-center mb-2" (click)="viewGame( games.id )" >Revisar Juego</a>
+        </div>
+    </div>
+</div>
+
+
+<app-footer></app-footer>

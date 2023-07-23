@@ -1,0 +1,60 @@
+<app-header></app-header>
+
+<div class="container mb-3">
+    <div class="row">
+        <div class="col-12 justify-content-center m-1">
+            <h1 class="mt-1 col-6">{{ oneGame['title'] }}</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 m-1">
+            <img src="{{ oneGame['screenshots'][0]['image']}}" alt="" class="img-fluid">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 m-1">
+            <p class="justify-content-center">{{ oneGame['description'] }}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 m-1">
+            <img src="{{ oneGame['screenshots'][1]['image']}}" alt="" class="img-fluid">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <div class="col-12 m-1">
+                <ul class="list-group">
+                    <li class="list-group-item">Plataforma: {{ oneGame['platform'] }}</li>
+                    <li class="list-group-item">Genero: {{ oneGame['genre'] }}</li>
+                    <li class="list-group-item">Empresa: {{ oneGame['publisher'] }}</li>
+                    <li class="list-group-item">Estreno: {{ oneGame['release_date'] }}</li>
+                    <li class="list-group-item">Estado: {{ oneGame['status'] }}</li>
+                    <li class="list-group-item">Desarrollado por: {{ oneGame['developer'] }}</li>
+                  </ul>
+            </div>
+            <div class="col-12">
+                <h4 class="m-1">Requerimientos Minimos</h4>
+                <ul class="list-group m-1">
+                    <li class="list-group-item list-group-item-dark">Sistema Operativo: {{ oneGame['minimum_system_requirements']['os'] }} </li>
+                    <li class="list-group-item list-group-item-dark">Procesador: {{ oneGame['minimum_system_requirements']['processor'] }} </li>
+                    <li class="list-group-item list-group-item-dark">Memoria Ram: {{ oneGame['minimum_system_requirements']['memory'] }} </li>
+                    <li class="list-group-item list-group-item-dark">Tarjeta Grafica: {{ oneGame['minimum_system_requirements']['graphics'] }} </li>
+                    <li class="list-group-item list-group-item-dark">Almacenamiento: {{ oneGame['minimum_system_requirements']['storage'] }} </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="col-12 m-1">
+                <img src="{{ oneGame['screenshots'][2]['image']}}" class="img-fluid">
+            </div>
+            <p>
+                {{ oneGame['short_description'] }}
+            </p>
+        </div>
+    </div>
+    
+</div>
+
+<br />    
+<app-footer></app-footer>
